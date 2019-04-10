@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/monitor"
+        android:layout_width="match_parent"
+        android:layout_margin="16dp"
+        android:text=""
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/result"
+        android:layout_height="match_parent"
+        android:layout_weight="0.7"/>
+
+    <TextView
+        android:layout_weight="1"
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="16dp"
+        android:text=""
+        app:layout_constraintLeft_toLeftOf="@+id/btn-clear"
+        app:layout_constraintBottom_toTopOf="@+id/btn-clear"/>
+
+    <Button
+        android:id="@+id/btn-clear"
+        android:layout_width="56dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="10dp"
+        android:text="C"
+        app:layout_constraintLeft_toLeftOf="@+id/btn-7"
+        app:layout_constraintBottom_toTopOf="@+id/btn-7"/>
+
+    <Button
+        android:text="^"
+        android:id="@+id/btn-power"
+        android:layout_width="56dp"
+        android:layout_height="52dp"
+        android:height="52dp"
+        app:layout_constraintLeft_toRightOf="@+id/btn-clear"
+        app:layout_constraintTop_toTopOf="@+id/btn-clear"/>
+
+    <Button
+        android:id="@+id/btn-percent"
+        android:text="%"
+        android:layout_width="56dp"
+        android:layout_height="52dp"
+        app:layout_constraintLeft_toRightOf="@+id/btn-power"
+        app:layout_constraintTop_toTopOf="@+id/btn-power" />
+
+    <Button
+        android:id="@+id/btn-equal"
+        android:layout_height="52dp"
+        android:layout_width="wrap_content"
+        android:text="="
+        app:layout_constraintRight_toRightOf="@id/monitor"
+        app:layout_constraintTop_toTopOf="@id/btn-percent"
+        />
+
+    <Button
+        android:id="@+id/btn-division"
+        android:layout_width="56dp"
+        android:layout_height="52dp"
+        android:text="÷"
+        app:layout_constraintLeft_toLeftOf="@+id/btn-minus"
+        app:layout_constraintBottom_toTopOf="@+id/btn-minus"
+        />
+
+    <Button
+        android:id="@+id/btn-minus"
+        android:layout_width="56dp"
+        android:layout_height="52dp"
+        android:text="-"
+        app:layout_constraintLeft_toLeftOf="@+id/btn-multiply"
+        app:layout_constraintBottom_toTopOf="@+id/btn-multiply" />
+
+    <Button
+        android:id="@+id/btn-abs"
+        android:layout_width="56dp"
+        android:layout_height="52dp"
+        android:text="±"
+        app:layout_constraintLeft_toLeftOf="@+id/monitor"
+        android:layout_marginBottom="32dp"
+        android:minHeight="52dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btn-float"
+        android:layout_width="56dp"
+        android:layout_height="52dp"
+        android:text="."
+
+        app:layout_constraintLeft_toRightOf="@+id/btn-0"
+        app:layout_constraintTop_toTopOf="@+id/btn-0" />
+
+    <Button
+        android:id="@+id/btn-0"
+        android:layout_width="56dp"
+        android:layout_height="52dp"
+        android:text="0"
+
+        app:layout_constraintLeft_toRightOf="@+id/btn-abs"
+        app:layout_constraintTop_toTopOf="@+id/btn-abs" />
+
+    <Button
+        android:id="@+id/btn-plus"
+        android:layout_width="56dp"
+        android:layout_height="52dp"
+        android:text="+"
+
+        app:layout_constraintRight_toRightOf="@+id/monitor"
+        app:layout_constraintTop_toTopOf="@+id/btn-float" />
+
+    <Button
+        android:id="@+id/btn-1"
+        android:layout_width="56dp"
+        android:layout_height="52dp"
+        android:text="1"
+
+        app:layout_constraintLeft_toLeftOf="@+id/btn-abs"
+        app:layout_constraintBottom_toTopOf="@+id/btn-abs" />
+
+    <Button
+        android:id="@+id/btn-3"
+        android:layout_width="56dp"
+        android:layout_height="52dp"
+        android:text="3"
+
+        app:layout_constraintLeft_toLeftOf="@+id/btn-float"
+        app:layout_constraintBottom_toTopOf="@+id/btn-float"/>
+
+    <Button
+        android:id="@+id/btn-2"
+        android:layout_width="56dp"
+        android:layout_height="52dp"
+        android:text="2"
+
+        app:layout_constraintLeft_toLeftOf="@+id/btn-0"
+        app:layout_constraintBottom_toTopOf="@+id/btn-0" />
+
+    <Button
+        android:id="@+id/btn-multiply"
+        android:layout_width="56dp"
+        android:layout_height="52dp"
+        android:text="×"
+
+        app:layout_constraintLeft_toLeftOf="@+id/btn-plus"
+        app:layout_constraintBottom_toTopOf="@+id/btn-plus" />
+
+    <Button
+        android:id="@+id/btn-4"
+        android:layout_width="56dp"
+        android:layout_height="52dp"
+        android:text="4"
+
+        app:layout_constraintLeft_toLeftOf="@+id/btn-1"
+        app:layout_constraintBottom_toTopOf="@+id/btn-1"/>
+
+    <Button
+        android:id="@+id/btn-6"
+        android:layout_width="56dp"
+        android:layout_height="52dp"
+        android:text="6"
+
+        app:layout_constraintLeft_toLeftOf="@+id/btn-3"
+        app:layout_constraintBottom_toTopOf="@+id/btn-3" />
+
+    <Button
+        android:id="@+id/btn-5"
+        android:layout_width="56dp"
+        android:layout_height="52dp"
+        android:text="5"
+
+        app:layout_constraintLeft_toLeftOf="@+id/btn-2"
+        app:layout_constraintBottom_toTopOf="@+id/btn-2" />
+
+
+
+    <Button
+        android:id="@+id/btn-8"
+        android:layout_width="56dp"
+        android:layout_height="52dp"
+        android:text="8"
+        app:layout_constraintLeft_toLeftOf="@+id/btn-5"
+        app:layout_constraintBottom_toTopOf="@+id/btn-5" />
+
+    <Button
+        android:id="@+id/btn-7"
+        android:layout_width="56dp"
+        android:layout_height="52dp"
+        android:text="7"
+        app:layout_constraintLeft_toLeftOf="@+id/btn-4"
+        app:layout_constraintBottom_toTopOf="@+id/btn-4"/>
+
+    <Button
+        android:id="@+id/btn-9"
+        android:layout_width="56dp"
+        android:layout_height="52dp"
+        android:text="9"
+        app:layout_constraintLeft_toLeftOf="@+id/btn-6"
+        app:layout_constraintBottom_toTopOf="@+id/btn-6" />
+
+
+
+
+</android.support.constraint.ConstraintLayout>
