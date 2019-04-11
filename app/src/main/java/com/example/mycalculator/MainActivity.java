@@ -1,8 +1,7 @@
 package com.example.mycalculator;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,7 +9,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9;
-    private Button btnDivision, btnAbs, btnPercent, btnEqual, btnMinus, btnMultiply, btnPlus ;
+    private Button btnDivision, btnAbs, btnPercent, btnEqual, btnMinus, btnMultiply, btnPlus, btnClear ;
     private TextView monitor;
     private TextView result;
     private static final String TAG = "amirhome";
@@ -19,8 +18,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        defineObjects();
+    }
+
+    private void defineObjects() {
         monitor = findViewById(R.id.monitor);
         result = findViewById(R.id.result);
+
         btn0 = findViewById(R.id.btn_0);
         btn0.setOnClickListener(this);
         btn1 = findViewById(R.id.btn_1);
@@ -55,6 +59,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnPlus.setOnClickListener(this);
         btnEqual = findViewById(R.id.btn_equal);
         btnEqual.setOnClickListener(this);
+        btnClear = findViewById(R.id.btn_clear);
+        btnClear.setOnClickListener(this);
     }
 
     @Override
@@ -79,8 +85,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_plus:
                 monitor.append("+");
             break;
+             case R.id.btn_clear:
+                monitor.setText("");
+                result.setText("");
+            break;
             case R.id.btn_equal:
-                monitor.append("=");
+                result.setText("xxxxx");
             break;
             case R.id.btn_0:
                 monitor.append("0");
