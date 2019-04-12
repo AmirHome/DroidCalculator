@@ -10,7 +10,7 @@ import java.text.DecimalFormat;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9;
-    private Button btnDivision, btnBack, btnPercent, btnEqual, btnMinus, btnMultiply, btnPlus, btnClear ;
+    private Button btnDivision, btnBack, btnPercent, btnEqual, btnMinus, btnMultiply, btnPlus, btnClear, btnPower ;
     private TextView monitor;
     private TextView result;
     private static final String TAG = "amirhome";
@@ -48,8 +48,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn8.setOnClickListener(this);
         btn9 = findViewById(R.id.btn_9);
         btn9.setOnClickListener(this);
+
         btnBack = findViewById(R.id.btn_back);
         btnBack.setOnClickListener(this);
+        btnPower = findViewById(R.id.btn_power);
+        btnPower.setOnClickListener(this);
         btnPercent = findViewById(R.id.btn_percent);
         btnPercent.setOnClickListener(this);
         btnDivision = findViewById(R.id.btn_division);
@@ -71,32 +74,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     {
 
         switch (view.getId()) {
-            case R.id.btn_back:
-                monitor.append("0");
+            case R.id.btn_power:
+            monitor.append("^");
             break;
             case R.id.btn_percent:
-                monitor.append("%");
+            monitor.append("%");
             break;
             case R.id.btn_division:
-                monitor.append("÷");
+            monitor.append("÷");
             break;
             case R.id.btn_minus:
-                monitor.append("-");
+            monitor.append("-");
             break;
             case R.id.btn_multiply:
-                monitor.append("x");
+            monitor.append("x");
             break;
             case R.id.btn_plus:
-                monitor.append("+");
+            monitor.append("+");
             break;
-             case R.id.btn_clear:
+            case R.id.btn_back:
+                int len = monitor.length();
+                if(len > 0)
+                    monitor.setText(monitor.getText().subSequence(0,len-1));
+                break;
+            case R.id.btn_clear:
                 monitor.setText("");
                 result.setText("");
             break;
             case R.id.btn_equal:
-
                 result.setText( String.valueOf(evaluate(monitor.getText().toString())) );
-//                result.setText( monitor.getText().toString() );
             break;
             case R.id.btn_0:
                 monitor.append("0");
@@ -136,6 +142,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Add space padding to operands.
         //https://regex101.com/r/sJ9gM7/73
         exp = exp.replaceAll("(?<=[0-9()])[÷]", " / ");
+        exp = exp.replaceAll("(?<=[0-9()])[%]", " / 100");
         exp = exp.replaceAll("(?<=[0-9()])[\\^]", " ^ ");
         exp = exp.replaceAll("(?<=[0-9()])[x]", " * ");
         exp = exp.replaceAll("(?<=[0-9()])[+]", " + ");
