@@ -10,7 +10,7 @@ import java.text.DecimalFormat;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9;
-    private Button btnDivision, btnAbs, btnPercent, btnEqual, btnMinus, btnMultiply, btnPlus, btnClear ;
+    private Button btnDivision, btnBack, btnPercent, btnEqual, btnMinus, btnMultiply, btnPlus, btnClear ;
     private TextView monitor;
     private TextView result;
     private static final String TAG = "amirhome";
@@ -48,8 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn8.setOnClickListener(this);
         btn9 = findViewById(R.id.btn_9);
         btn9.setOnClickListener(this);
-        btnAbs = findViewById(R.id.btn_abs);
-        btnAbs.setOnClickListener(this);
+        btnBack = findViewById(R.id.btn_back);
+        btnBack.setOnClickListener(this);
         btnPercent = findViewById(R.id.btn_percent);
         btnPercent.setOnClickListener(this);
         btnDivision = findViewById(R.id.btn_division);
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     {
 
         switch (view.getId()) {
-            case R.id.btn_abs:
+            case R.id.btn_back:
                 monitor.append("0");
             break;
             case R.id.btn_percent:
