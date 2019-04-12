@@ -10,7 +10,7 @@ import java.text.DecimalFormat;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9;
-    private Button btnDivision, btnBack, btnPercent, btnEqual, btnMinus, btnMultiply, btnPlus, btnClear, btnPower ;
+    private Button btnDivision, btnBack, btnPercent, btnEqual, btnMinus, btnMultiply, btnPlus, btnClear, btnPower, btnFloat ;
     private TextView monitor;
     private TextView result;
     private static final String TAG = "amirhome";
@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnMultiply.setOnClickListener(this);
         btnPlus = findViewById(R.id.btn_plus);
         btnPlus.setOnClickListener(this);
+        btnFloat = findViewById(R.id.btn_float);
+        btnFloat.setOnClickListener(this);
         btnEqual = findViewById(R.id.btn_equal);
         btnEqual.setOnClickListener(this);
         btnClear = findViewById(R.id.btn_clear);
@@ -91,6 +93,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             break;
             case R.id.btn_plus:
             monitor.append("+");
+            break;
+            case R.id.btn_float:
+            monitor.append(".");
             break;
             case R.id.btn_back:
                 int len = monitor.length();
