@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -13,7 +15,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnDivision, btnBack, btnPercent, btnEqual, btnMinus, btnMultiply, btnPlus, btnClear, btnPower, btnFloat ;
     private TextView monitor;
     private TextView result;
-    private static final String TAG = "amirhome";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -164,7 +165,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public static Double evaluate(String expr){
 
-        DecimalFormat df = new DecimalFormat("#.####");
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.US);
+        DecimalFormat df = new DecimalFormat("#.####", symbols);
 
         //Format the expression properly before performing operations
         String expression = addSpaces(expr);
