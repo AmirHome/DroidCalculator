@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/result"
         android:layout_height="match_parent"
-        android:textSize="37dp"
+        android:textSize="37sp"
         android:layout_weight="0.7"/>
 
     <TextView
@@ -42,29 +42,28 @@
         android:id="@+id/btn-power"
         android:layout_width="60dp"
         android:layout_height="56dp"
-        android:height="56dp"
-        android:text="^"
+        android:text="@string/power"
         android:textSize="23sp"
-        app:layout_constraintLeft_toRightOf="@+id/btn-clear"
-        app:layout_constraintTop_toTopOf="@+id/btn-clear" />
+        app:layout_constraintLeft_toRightOf="@+id/btn-back"
+        app:layout_constraintTop_toTopOf="@+id/btn-back" />
 
     <Button
         android:id="@+id/btn-percent"
-        android:text="%"
         android:layout_width="60dp"
         android:layout_height="56dp"
+        android:text="%"
         android:textSize="23sp"
-        app:layout_constraintLeft_toRightOf="@+id/btn-power"
-        app:layout_constraintTop_toTopOf="@+id/btn-power" />
+        app:layout_constraintLeft_toRightOf="@+id/btn-0"
+        app:layout_constraintTop_toTopOf="@+id/btn-0"/>
 
     <Button
         android:id="@+id/btn-back"
-        android:layout_width="wrap_content"
+        android:layout_width="60dp"
         android:layout_height="56dp"
-        android:text="↩"
+        android:text="⌫"
         android:textSize="25sp"
-        app:layout_constraintRight_toRightOf="@id/monitor"
-        app:layout_constraintTop_toTopOf="@id/btn-percent" />
+        app:layout_constraintLeft_toRightOf="@+id/btn-clear"
+        app:layout_constraintTop_toTopOf="@+id/btn-clear"  />
 
     <Button
         android:id="@+id/btn-division"
@@ -104,8 +103,9 @@
         android:textSize="23sp"
         android:text="="
 
-        app:layout_constraintLeft_toRightOf="@+id/btn-0"
-        app:layout_constraintTop_toTopOf="@+id/btn-0" />
+
+        app:layout_constraintRight_toRightOf="@+id/monitor"
+        app:layout_constraintTop_toTopOf="@+id/btn-percent" />
 
     <Button
         android:id="@+id/btn-0"
@@ -122,8 +122,8 @@
         android:layout_height="56dp"
         android:text="+"
         android:textSize="23sp"
-        app:layout_constraintRight_toRightOf="@+id/monitor"
-        app:layout_constraintTop_toTopOf="@+id/btn-equal" />
+        app:layout_constraintBottom_toTopOf="@+id/btn-equal"
+        app:layout_constraintLeft_toLeftOf="@+id/btn-equal" />
 
     <Button
         android:id="@+id/btn-1"
@@ -142,8 +142,8 @@
         android:text="3"
         android:textSize="20sp"
 
-        app:layout_constraintLeft_toLeftOf="@+id/btn-equal"
-        app:layout_constraintBottom_toTopOf="@+id/btn-equal"/>
+        app:layout_constraintLeft_toLeftOf="@+id/btn-percent"
+        app:layout_constraintBottom_toTopOf="@+id/btn-percent"/>
 
     <Button
         android:id="@+id/btn-2"
@@ -189,7 +189,7 @@
         android:id="@+id/btn-5"
         android:layout_width="60dp"
         android:layout_height="56dp"
-        android:text="5"
+        android:text="@string/_5"
         android:textSize="20sp"
 
         app:layout_constraintLeft_toLeftOf="@+id/btn-2"

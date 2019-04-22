@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnDivision, btnBack, btnPercent, btnEqual, btnMinus, btnMultiply, btnPlus, btnClear, btnPower, btnFloat ;
     private TextView monitor;
     private TextView result;
+    private boolean isOperator = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,67 +79,120 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (view.getId()) {
             case R.id.btn_power:
-            monitor.append("^");
+                if(!isOperator){
+                    monitor.append("^");
+                    isOperator = true;
+                }
             break;
             case R.id.btn_percent:
-            monitor.append("%");
+                if(!isOperator){
+                    monitor.append("%");
+                    isOperator = true;
+                }
             break;
             case R.id.btn_division:
-            monitor.append("÷");
+                if(!isOperator){
+                    monitor.append("÷");
+                    isOperator = true;
+                }
             break;
             case R.id.btn_minus:
-            monitor.append("-");
+                if(!isOperator){
+                    monitor.append("-");
+                    isOperator = true;
+                }
             break;
             case R.id.btn_multiply:
-            monitor.append("x");
+                if(!isOperator){
+                    monitor.append("x");
+                    isOperator = true;
+                }
             break;
             case R.id.btn_plus:
-            monitor.append("+");
+                if(!isOperator){
+                    monitor.append("+");
+                    isOperator = true;
+                }
             break;
             case R.id.btn_float:
-            monitor.append(".");
+                if(!isOperator){
+                    monitor.append(".");
+                    isOperator = true;
+                }
             break;
             case R.id.btn_back:
                 int len = monitor.length();
-                if(len > 0)
-                    monitor.setText(monitor.getText().subSequence(0,len-1));
+                if(len > 0) {
+                    monitor.setText(monitor.getText().subSequence(0, len - 1));
+                    len = monitor.length();
+                    if(len > 0) {
+                        String lastChar = monitor.getText().toString().substring(len - 1);
+                        switch (lastChar){
+                            case ".":
+                            case "+":
+                            case "-":
+                            case "x":
+                            case "÷":
+                            case "^":
+                            case "%":
+                                isOperator = true;
+                                break;
+                            default:
+                                isOperator = false;
+                                break;
+                        }
+                    }
+                }
                 break;
             case R.id.btn_clear:
                 monitor.setText("");
                 result.setText("");
-            break;
+                isOperator = true;
+
+                break;
             case R.id.btn_equal:
                 result.setText( String.valueOf(evaluate(monitor.getText().toString())) );
-            break;
+                isOperator = false;
+                break;
             case R.id.btn_0:
                 monitor.append("0");
+                isOperator = false;
             break;
             case R.id.btn_1:
+                isOperator = false;
                 monitor.append("1");
             break;
              case R.id.btn_2:
+                 isOperator = false;
                 monitor.append("2");
             break;
              case R.id.btn_3:
+                 isOperator = false;
                 monitor.append("3");
             break;
              case R.id.btn_4:
                 monitor.append("4");
+                 isOperator = false;
             break;
              case R.id.btn_5:
                 monitor.append("5");
+                 isOperator = false;
             break;
              case R.id.btn_6:
                 monitor.append("6");
+                 isOperator = false;
             break;
              case R.id.btn_7:
                 monitor.append("7");
+                 isOperator = false;
             break;
              case R.id.btn_8:
                 monitor.append("8");
+                 isOperator = false;
             break;
              case R.id.btn_9:
                 monitor.append("9");
+                 isOperator = false;
             break;
         }
     }
