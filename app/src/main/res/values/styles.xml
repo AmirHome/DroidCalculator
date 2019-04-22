@@ -8,4 +8,19 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="FlatButtonBold" parent="Base.Widget.AppCompat.Button.Borderless">
+        <item name="android:textAppearance">@style/TextStyle</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorOperators</item>
+        <item name="android:textSize">23sp</item>
+    </style>
+    <style name="FlatButton" parent="Base.Widget.AppCompat.Button.Borderless">
+        <item name="android:textAppearance">@style/TextStyle</item>
+        <item name="android:textColor">?colorPrimaryDark</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextStyle" parent="android:TextAppearance.Widget.TextView">
+        <item name="android:textStyle">normal</item>
+    </style>
 </resources>
