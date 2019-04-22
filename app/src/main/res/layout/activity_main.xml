@@ -52,8 +52,6 @@
 
     <Button
         android:id="@+id/btn-percent"
-        android:layout_width="60dp"
-        android:layout_height="56dp"
         android:text="@string/percent"
         style="@style/FlatButtonBold"
         app:layout_constraintLeft_toRightOf="@+id/btn-0"
@@ -71,8 +69,6 @@
 
     <Button
         android:id="@+id/btn-division"
-        android:layout_width="60dp"
-        android:layout_height="56dp"
         android:text="÷"
         style="@style/FlatButtonBold"
         app:layout_constraintLeft_toLeftOf="@+id/btn-multiply"
@@ -81,8 +77,6 @@
 
     <Button
         android:id="@+id/btn-minus"
-        android:layout_width="60dp"
-        android:layout_height="56dp"
         android:text="-"
         style="@style/FlatButtonBold"
         app:layout_constraintBottom_toTopOf="@+id/btn-plus"
@@ -90,8 +84,6 @@
 
     <Button
         android:id="@+id/btn-float"
-        android:layout_width="60dp"
-        android:layout_height="56dp"
         android:layout_marginBottom="32dp"
         android:minHeight="56dp"
         android:text="."
@@ -112,8 +104,6 @@
 
     <Button
         android:id="@+id/btn-0"
-        android:layout_width="60dp"
-        android:layout_height="56dp"
         android:text="0"
         style="@style/FlatButton"
         app:layout_constraintLeft_toRightOf="@+id/btn-float"
@@ -121,8 +111,6 @@
 
     <Button
         android:id="@+id/btn-plus"
-        android:layout_width="60dp"
-        android:layout_height="56dp"
         android:text="+"
         style="@style/FlatButtonBold"
         app:layout_constraintBottom_toTopOf="@+id/btn-equal"
@@ -130,18 +118,13 @@
 
     <Button
         android:id="@+id/btn-1"
-        android:layout_width="60dp"
-        android:layout_height="56dp"
         android:text="1"
-
         style="@style/FlatButton"
         app:layout_constraintLeft_toLeftOf="@+id/btn-float"
         app:layout_constraintBottom_toTopOf="@+id/btn-float" />
 
     <Button
         android:id="@+id/btn-3"
-        android:layout_width="60dp"
-        android:layout_height="56dp"
         android:text="3"
         style="@style/FlatButton"
         app:layout_constraintLeft_toLeftOf="@+id/btn-percent"
@@ -149,8 +132,6 @@
 
     <Button
         android:id="@+id/btn-2"
-        android:layout_width="60dp"
-        android:layout_height="56dp"
         android:text="2"
         style="@style/FlatButton"
         app:layout_constraintLeft_toLeftOf="@+id/btn-0"
@@ -158,8 +139,6 @@
 
     <Button
         android:id="@+id/btn-multiply"
-        android:layout_width="60dp"
-        android:layout_height="56dp"
         android:text="×"
         style="@style/FlatButtonBold"
         app:layout_constraintLeft_toLeftOf="@+id/btn-minus"
@@ -167,8 +146,6 @@
 
     <Button
         android:id="@+id/btn-4"
-        android:layout_width="60dp"
-        android:layout_height="56dp"
         android:text="4"
         style="@style/FlatButton"
         app:layout_constraintLeft_toLeftOf="@+id/btn-1"
@@ -176,8 +153,6 @@
 
     <Button
         android:id="@+id/btn-6"
-        android:layout_width="60dp"
-        android:layout_height="56dp"
         android:text="6"
         style="@style/FlatButton"
         app:layout_constraintLeft_toLeftOf="@+id/btn-3"
@@ -185,16 +160,12 @@
 
     <Button
         android:id="@+id/btn-5"
-        android:layout_width="60dp"
-        android:layout_height="56dp"
         android:text="@string/_5"
         style="@style/FlatButton"
         app:layout_constraintLeft_toLeftOf="@+id/btn-2"
         app:layout_constraintBottom_toTopOf="@+id/btn-2" />
     <Button
         android:id="@+id/btn-8"
-        android:layout_width="60dp"
-        android:layout_height="56dp"
         android:text="8"
         style="@style/FlatButton"
         app:layout_constraintLeft_toLeftOf="@+id/btn-5"
@@ -202,8 +173,6 @@
 
     <Button
         android:id="@+id/btn-7"
-        android:layout_width="60dp"
-        android:layout_height="56dp"
         android:text="7"
         style="@style/FlatButton"
         app:layout_constraintLeft_toLeftOf="@+id/btn-4"
@@ -211,8 +180,6 @@
 
     <Button
         android:id="@+id/btn-9"
-        android:layout_width="60dp"
-        android:layout_height="56dp"
         style="@style/FlatButton"
         android:text="9"
         app:layout_constraintLeft_toLeftOf="@+id/btn-6"
