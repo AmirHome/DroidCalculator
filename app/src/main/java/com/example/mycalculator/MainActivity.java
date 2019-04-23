@@ -2,6 +2,7 @@ package com.example.mycalculator;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,8 +22,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        defineObjects();
-
+//        defineObjects();
+        Double result = evaluate("4");
+        Log.d("Amir", String.valueOf(result));
 
     }
 
@@ -79,40 +81,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (view.getId()) {
             case R.id.btn_power:
-                if(!isOperator){
-                    monitor.append("^");
-                    isOperator = true;
-                }
-            break;
+                setOperator("^");
+                break;
             case R.id.btn_percent:
-                if(!isOperator){
-                    monitor.append("%");
-                    isOperator = true;
-                }
+                    setOperator("%");
+
             break;
             case R.id.btn_division:
-                if(!isOperator){
-                    monitor.append("÷");
-                    isOperator = true;
-                }
+                    setOperator("÷");
             break;
             case R.id.btn_minus:
-                if(!isOperator){
-                    monitor.append("-");
-                    isOperator = true;
-                }
+                    setOperator("-");
             break;
             case R.id.btn_multiply:
-                if(!isOperator){
-                    monitor.append("x");
-                    isOperator = true;
-                }
+                setOperator("x");
             break;
             case R.id.btn_plus:
-                if(!isOperator){
-                    monitor.append("+");
-                    isOperator = true;
-                }
+                    setOperator("+");
             break;
             case R.id.btn_float:
                 if(!isOperator){
@@ -125,23 +110,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(len > 0) {
                     monitor.setText(monitor.getText().subSequence(0, len - 1));
                     len = monitor.length();
-                    if(len > 0) {
-                        String lastChar = monitor.getText().toString().substring(len - 1);
-                        switch (lastChar){
-                            case ".":
-                            case "+":
-                            case "-":
-                            case "x":
-                            case "÷":
-                            case "^":
-                            case "%":
-                                isOperator = true;
-                                break;
-                            default:
-                                isOperator = false;
-                                break;
-                        }
-                    }
+
+                        setIsOperatorByLastChar(len);
+
                 }
                 break;
             case R.id.btn_clear:
@@ -152,49 +123,94 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_equal:
                 result.setText( String.valueOf(evaluate(monitor.getText().toString())) );
-                isOperator = false;
+                setIsOperatorByLastChar(monitor.length());
                 break;
             case R.id.btn_0:
                 monitor.append("0");
+                result.setText( String.valueOf(evaluate(monitor.getText().toString())) );
                 isOperator = false;
             break;
             case R.id.btn_1:
-                isOperator = false;
                 monitor.append("1");
+                result.setText( String.valueOf(evaluate(monitor.getText().toString())) );
+                isOperator = false;
             break;
              case R.id.btn_2:
+                 monitor.append("2");
+                 result.setText( String.valueOf(evaluate(monitor.getText().toString())) );
                  isOperator = false;
-                monitor.append("2");
-            break;
+                 break;
              case R.id.btn_3:
+                 monitor.append("3");
+                 result.setText( String.valueOf(evaluate(monitor.getText().toString())) );
                  isOperator = false;
-                monitor.append("3");
             break;
              case R.id.btn_4:
                 monitor.append("4");
+                 result.setText( String.valueOf(evaluate(monitor.getText().toString())) );
                  isOperator = false;
             break;
              case R.id.btn_5:
                 monitor.append("5");
+                 result.setText( String.valueOf(evaluate(monitor.getText().toString())) );
                  isOperator = false;
             break;
              case R.id.btn_6:
                 monitor.append("6");
+                 result.setText( String.valueOf(evaluate(monitor.getText().toString())) );
                  isOperator = false;
             break;
              case R.id.btn_7:
                 monitor.append("7");
+                 result.setText( String.valueOf(evaluate(monitor.getText().toString())) );
                  isOperator = false;
             break;
              case R.id.btn_8:
                 monitor.append("8");
+                 result.setText( String.valueOf(evaluate(monitor.getText().toString())) );
                  isOperator = false;
             break;
              case R.id.btn_9:
                 monitor.append("9");
+                 result.setText( String.valueOf(evaluate(monitor.getText().toString())) );
                  isOperator = false;
             break;
         }
+    }
+
+    private void setOperator(String str) {
+        int len = monitor.length();
+        if(len > 0) {
+            if(isOperator){
+
+                monitor.setText(monitor.getText().subSequence(0, len - 1));
+            }
+
+        monitor.append(str);
+        isOperator = true;
+        }
+    }
+
+    private void setIsOperatorByLastChar(int len) {
+        if(len > 0) {
+            String lastChar = monitor.getText().toString().substring(len - 1);
+            switch (lastChar){
+                case ".":
+                case "+":
+                case "-":
+                case "x":
+                case "÷":
+                case "^":
+                case "%":
+                    isOperator = true;
+                    break;
+                default:
+                    isOperator = false;
+                    break;
+            }
+        }
+
+
     }
 
     private static String addSpaces(String exp){
@@ -257,6 +273,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             int index = expression.indexOf(operation);
+//            if (0==index){
+//                index = expression.indexOf(operation, index+1);
+//            }
             if(index != -1){
                 indexOpen = expression.lastIndexOf(" ", index - 2);
                 indexOpen = (indexOpen == -1)?0:indexOpen;

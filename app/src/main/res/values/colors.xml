@@ -3,6 +3,9 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="colorResult">#DBDBDB</color>
-    <color name="colorOperators">#515be7</color>
+    <color name="colorResult">#212121</color>
+    <color name="colorResultBack">#000000</color>
+    <color name="colorOperators">#616161</color>
+    <color name="colorOperands">#424242</color>
+    <color name="colorWhite">#FFFFFF</color>
 </resources>
