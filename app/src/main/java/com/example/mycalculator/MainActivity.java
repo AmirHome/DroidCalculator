@@ -22,9 +22,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        defineObjects();
-        Double result = evaluate("4");
-        Log.d("Amir", String.valueOf(result));
+        defineObjects();
+//        Double result = evaluate("1-2-4x2+5-7");
+//        Log.d("Amir", String.valueOf(result));
 
     }
 
@@ -264,18 +264,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 operation = "^";
             } else if(expression.indexOf(" * ") != -1){
                 operation = "*";
-            } else if(expression.indexOf(" + ") != -1){
-                operation = "+";
-            } else if(expression.indexOf(" - ") != -1){ //Avoid negative numbers
-                operation = "-";
             } else{
+
+                while(expression.indexOf(" ")!=-1) {
+
+                    int oprIndex = expression.indexOf(" ");
+                    Double lhs;
+                    Double rhs;
+                    operation = expression.substring(oprIndex + 1, oprIndex + 2);
+                    lhs = Double.parseDouble(expression.substring(0, oprIndex));
+                    indexClose = expression.indexOf(" ", oprIndex + 3);
+                    indexClose = (indexClose == -1) ? expression.length() : indexClose;
+                    rhs = Double.parseDouble(expression.substring(oprIndex + 3, indexClose));
+                    Double result;
+                    if (operation.equals("+")) {
+                        result = lhs + rhs;
+                    } else {
+                        result = lhs - rhs;
+                    }
+                    if(indexClose==expression.length()) {
+                        expression =String.valueOf( result);
+
+                    }else{
+
+                        expression = result + expression.substring(indexClose);
+                    }
+                }
                 return Double.parseDouble(expression);
             }
 
             int index = expression.indexOf(operation);
-//            if (0==index){
-//                index = expression.indexOf(operation, index+1);
-//            }
+
             if(index != -1){
                 indexOpen = expression.lastIndexOf(" ", index - 2);
                 indexOpen = (indexOpen == -1)?0:indexOpen;
